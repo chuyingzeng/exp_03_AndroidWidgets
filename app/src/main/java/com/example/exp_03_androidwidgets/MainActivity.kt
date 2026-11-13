@@ -1,47 +1,53 @@
 package com.example.exp_03_androidwidgets
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.exp_03_androidwidgets.ui.theme.Exp_03_AndroidWidgetsTheme
+import android.view.WindowManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 
-class MainActivity : ComponentActivity() {
+class MainActivity : LabActivity(showUp = false) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            Exp_03_AndroidWidgetsTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+        setContentView(R.layout.activity_main)
+
+        link(R.id.open_animal_list, AnimalListActivity::class.java)
+        link(R.id.open_menu, MenuActivity::class.java)
+        link(R.id.open_selection, SelectionActivity::class.java)
+        link(R.id.open_recycler, AnimalRecyclerActivity::class.java)
+        findViewById<Button>(R.id.open_dialog).setOnClickListener { showSignInDialog() }
+    }
+
+    private fun link(buttonId: Int, destination: Class<out Activity>) {
+        findViewById<Button>(buttonId).setOnClickListener {
+            startActivity(Intent(this, destination))
+        }
+    }
+
+    private fun showSignInDialog() {
+        val form = layoutInflater.inflate(R.layout.dialog_sign_in, null)
+        val username = form.findViewById<EditText>(R.id.username)
+        val password = form.findViewById<EditText>(R.id.password)
+        val dialog = AlertDialog.Builder(this)
+            .setView(form)
+            .setNegativeButton(R.string.cancel, null)
+            .setPositiveButton(R.string.sign_in, null)
+            .create()
+
+        dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        dialog.show()
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+            when {
+                username.text.isBlank() -> username.error = getString(R.string.username_required)
+                password.text.isBlank() -> password.error = getString(R.string.password_required)
+                else -> {
+                    Toast.makeText(this, R.string.sign_in_complete, Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Exp_03_AndroidWidgetsTheme {
-        Greeting("Android")
     }
 }

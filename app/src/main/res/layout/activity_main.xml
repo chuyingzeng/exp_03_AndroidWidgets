@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="20dp">
+
+        <Button
+            android:id="@+id/open_animal_list"
+            style="@style/LabEntry"
+            android:text="@string/animal_list_title" />
+
+        <Button
+            android:id="@+id/open_dialog"
+            style="@style/LabEntry"
+            android:text="@string/dialog_title" />
+
+        <Button
+            android:id="@+id/open_menu"
+            style="@style/LabEntry"
+            android:text="@string/menu_title" />
+
+        <Button
+            android:id="@+id/open_selection"
+            style="@style/LabEntry"
+            android:text="@string/selection_title" />
+
+        <Button
+            android:id="@+id/open_recycler"
+            style="@style/LabEntry"
+            android:text="@string/recycler_title" />
+    </LinearLayout>
+</ScrollView>

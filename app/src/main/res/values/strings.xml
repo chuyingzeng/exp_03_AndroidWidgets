@@ -1,3 +1,48 @@
 <resources>
-    <string name="app_name">exp_03_AndroidWidgets</string>
+    <string name="app_name">实验3 · Android 界面组件</string>
+    <string name="animal_list_title">ListView 动物列表</string>
+    <string name="dialog_title">自定义 AlertDialog</string>
+    <string name="menu_title">XML 选项菜单</string>
+    <string name="selection_title">ActionMode 上下文菜单</string>
+    <string name="recycler_title">RecyclerView 动物列表</string>
+
+    <string name="animal_notification_channel">动物列表选中提醒</string>
+    <string name="animal_notification_text">你选择了 %1$s。</string>
+
+    <string name="dialog_banner">ANDROID APP</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="sign_in">Sign in</string>
+    <string name="username_required">请输入用户名</string>
+    <string name="password_required">请输入密码</string>
+    <string name="sign_in_complete">登录表单已提交</string>
+
+    <string name="menu_sample">用于测试的内容</string>
+    <string name="font_size">字体大小</string>
+    <string name="font_small">小（10 sp）</string>
+    <string name="font_medium">中（16 sp）</string>
+    <string name="font_large">大（20 sp）</string>
+    <string name="menu_regular">普通菜单项</string>
+    <string name="font_color">字体颜色</string>
+    <string name="font_red">红色</string>
+    <string name="font_black">黑色</string>
+
+    <string name="selection_hint">长按进入多选，点按可增减选中项。</string>
+    <string name="selected_count">已选 %1$d 项</string>
+    <string name="delete_selection">删除</string>
+    <string name="selection_empty">列表已清空</string>
+    <string-array name="selection_items">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+    </string-array>
+
+    <string name="add_record">新增记录</string>
+    <string name="record_count">共 %1$d 条记录</string>
 </resources>

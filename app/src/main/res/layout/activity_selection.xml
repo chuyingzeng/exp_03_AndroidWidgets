@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lab_tint"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="12dp"
+        android:text="@string/selection_hint"
+        android:textColor="@color/lab_ink"
+        android:textSize="14sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/selection_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/row_divider"
+            android:dividerHeight="1dp" />
+
+        <TextView
+            android:id="@+id/selection_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/selection_empty"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>
